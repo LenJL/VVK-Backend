@@ -1,5 +1,4 @@
 // controllers/utilityController.js
-import { createCanvas } from "canvas";
 import twilio from "twilio";
 import admin from "firebase-admin";
 import Invoice from "../models/Invoice.js";
@@ -29,30 +28,6 @@ export const getNextBillNumber = async (req, res) => {
   }
 };
 
-// Generate plate image
-export const generatePlateImage = async (req, res) => {
-  const { plate = "", bike = "" } = req.body || {};
-  const width = 800,
-    height = 300;
-  const canvas = createCanvas(width, height);
-  const ctx = canvas.getContext("2d");
-
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0, 0, width, height);
-
-  ctx.fillStyle = "#000";
-  ctx.fillRect(30, 60, width - 60, 180);
-
-  ctx.fillStyle = "#fff";
-  ctx.font = "bold 72px Sans";
-  ctx.fillText(plate.toUpperCase(), 50, 150);
-  ctx.font = "bold 28px Sans";
-  ctx.fillText(bike, 50, 200);
-
-  const buffer = canvas.toBuffer("image/png");
-  res.setHeader("Content-Type", "image/png");
-  res.send(buffer);
-};
 
 // Send SMS
 export const sendSMS = async (req, res) => {
