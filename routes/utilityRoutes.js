@@ -1,7 +1,6 @@
 // routes/utilityRoutes.js
 import express from "express";
 import {
-  generatePlateImage,
   sendSMS,
   sendWhatsApp,
   sendNotification,
