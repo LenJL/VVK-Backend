@@ -10,7 +10,6 @@ import {
 
 const router = express.Router();
 
-router.post("/generate-plate", generatePlateImage);
 router.post("/send-sms", sendSMS);
 router.post("/send-whatsapp", sendWhatsApp);
 router.post("/notify-ready", sendNotification);
