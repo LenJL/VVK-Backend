@@ -14,7 +14,11 @@ import utilityRoutes from "./routes/utilityRoutes.js";
 
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:8081", "https://your-frontend-domain.com"], // add your deployed frontend here too
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(bodyParser.json({ limit: "5mb" }));
 
 // Connect to DB
