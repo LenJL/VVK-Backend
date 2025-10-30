@@ -24,6 +24,7 @@ export const getNextBillNumber = async (req, res) => {
     res.json({ billNo: nextBillNo });
   } catch (err) {
     console.error("Bill number fetch error:", err);
+    
     res.status(500).json({ error: "Failed to get bill number" });
   }
 };
